@@ -3,14 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LUCY</title>
+  <title>A ma tendre lucy</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>LUCY CHOUUUU</h1>
-  <p>LUCY.       LUCY </p>
-  <audio id="audio" autoplay loop>
-    <source src="Audio.mp3" type="audio/mpeg">
-    Votre navigateur ne supporte pas l'audio.
-  </audio>
+  <div class="container">
+    <h1>LUCY , Bienvenue sur mon site</h1>
+    <p>Clique sur le bouton ci-dessous pour voir la surprise :</p>
+    <button onclick="playAudio()">SURPRISE</button>
+    <audio id="audio" loop>
+      <source src="Audio.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <script>
+    const audio = document.getElementById('audio');
+    function playAudio() {
+      audio.play();
+    }
+  </script>
 </body>
 </html>
