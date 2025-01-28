@@ -1,8 +1,8 @@
 /* Style général */
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f9;
-  color: #333;
+  font-family: 'Courier New', Courier, monospace;
+  background-color: #000;
+  color: #33FF33;
   margin: 0;
   padding: 0;
   display: flex;
@@ -11,19 +11,37 @@ body {
   height: 100vh;
 }
 
+/* Ajout d'un effet de balayage en arrière-plan */
+body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(0deg, transparent 0%, rgba(255, 255, 255, 0.1) 50%, transparent 100%);
+  background-size: 100% 2px;
+  pointer-events: none;
+}
+
 /* Conteneur principal */
 .container {
   text-align: center;
-  background: #fff;
+  background: rgba(0, 0, 0, 0.8);
   padding: 20px 40px;
   border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+  position: relative;
+}
+
+/* Effet de texte */
+h1, p, button {
+  text-shadow: 0 0 10px #33FF33, 0 0 20px #33FF33, 0 0 30px #33FF33;
 }
 
 /* Titre principal */
 h1 {
   font-size: 2rem;
-  color: #4CAF50;
   margin-bottom: 20px;
 }
 
@@ -35,16 +53,34 @@ p {
 
 /* Bouton */
 button {
-  background-color: #4CAF50;
-  color: white;
-  border: none;
+  background-color: #000;
+  color: #33FF33;
+  border: 2px solid #33FF33;
   padding: 10px 20px;
   font-size: 1rem;
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
 }
 
 button:hover {
-  background-color: #45a049;
+  background-color: #33FF33;
+  color: #000;
+  box-shadow: 0 0 10px #33FF33, 0 0 20px #33FF33, 0 0 30px #33FF33;
+}
+
+/* Animer le texte pour un effet de saisie */
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+h1::after {
+  content: '|';
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  50.01%, 100% { opacity: 0; }
 }
